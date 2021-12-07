@@ -1,5 +1,6 @@
 package dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import dto.Product;
@@ -29,6 +30,7 @@ public class Repository {
 		tablet.setUnitsInStock(10000);
 		tablet.setCondition("Old");
 		
+		listOfProducts= new ArrayList<>();
 		listOfProducts.add(phone);
 		listOfProducts.add(notebook);
 		listOfProducts.add(tablet);
@@ -36,5 +38,19 @@ public class Repository {
 	
 	public List<Product> getAllproducts(){
 		return listOfProducts;
+	}
+	
+	public Product getProductById(String productId) {
+		Product product = null;
+		
+		for(Product nthProduct : listOfProducts) {
+			String nthProductId = nthProduct.getProductId();
+			
+			if(nthProductId.equals(productId)) {
+				product = nthProduct;
+				break;
+			}
+		}
+		return product;
 	}
 }

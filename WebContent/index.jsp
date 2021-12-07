@@ -4,28 +4,10 @@
 <%!
 	//String greeting = "Welcome to Web Shopping Mall";
 	String greeting = "웹 쇼핑몰에 오신것을 환영합니다";
-	String tagline = "Welcome to Web Market";
+
 %>
 
-<% //집에서 형식화 해보기
-	LocalDateTime ldt = LocalDateTime.now();
-	String am_pm;
-	int hour = ldt.getHour();
-	int minute = ldt.getMinute();
-	String s_minute=(minute <10 ? "0" : "") + minute;
-	
-	int second = ldt.getSecond();
-	String s_second = (second <10 ? "0" : "") + second;
-	
-	if((hour/12)==0){
-		am_pm="AM";
-	}else{
-		am_pm="PM";
-		hour = hour-12;
-	}
-	
-	String CT = hour+":"+s_minute+":"+s_second+" "+am_pm;
-%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -60,8 +42,6 @@
 </div>
 
 	<%@ include file="footer.jsp" %>
-	<footer class="container">
-	<p>&copy; WebMarket</p>
-	</footer>
+	
 </body>
 </html>
