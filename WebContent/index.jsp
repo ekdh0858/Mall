@@ -1,11 +1,6 @@
 <%@page import="java.time.LocalDateTime"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
-<%!
-	//String greeting = "Welcome to Web Shopping Mall";
-	String greeting = "웹 쇼핑몰에 오신것을 환영합니다";
-
-%>
 
 
 <!DOCTYPE html>
@@ -25,15 +20,6 @@
 <body>
 
 <%@ include file="header.jsp" %>
-<nav class="navbar navbar-fixed-top navbar-inverse">
-	<div class="container">
-		<div id="nav" class="collapse navbar-collapse">
-			<ul class="nav navbar-nav">
-				<li class="active"><a href="./index.jsp">Home</a></li>
-			</ul>
-		</div>
-	</div>
-</nav>
 
 <div class="jumbotron">
 	<div class="container">
@@ -41,7 +27,16 @@
 	</div>
 </div>
 
-	<%@ include file="footer.jsp" %>
+<main role="main">
+	<div class="container">
+		<div class="text-center">
+			<h3><%= tagline %></h3>
+			<p>현재 접속 시간 <%= CT %></p>
+		</div>
+	</div>
+</main>
+
+<%@ include file="footer.jsp" %>
 	
 </body>
 </html>

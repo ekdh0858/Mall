@@ -1,15 +1,5 @@
-<%@page import="dto.Product"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<jsp:useBean id="productDAO" class="dao.Repository" scope="session"/>
 
-<%
-	String id = request.getParameter("id");
-	Product product = productDAO.getProductById(id);
-%>
-
-<%!
-	String greeting ="상품 정보";
-%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -55,7 +45,7 @@
 </main>
 
 
-	<%@ include file="../footer.jsp" %>
+<%@ include file="../footer.jsp" %>
 	
 </body>
 </html>
