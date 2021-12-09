@@ -3,8 +3,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<c:set var="greeting" value="웹 서핑몰에 오신 것을 환영합니다"/>
-<c:set var ="tagline" value="Welcome to web Market!"/>
+<c:set var="greeting" value="웹 쇼핑몰에 오신 것을 환영합니다" scope="request"/>
+<c:set var ="tagline" value="Welcome to web Market!" scope="request"/>
 
 
 
@@ -30,3 +30,5 @@
 	
 	
 %>
+
+<c:set var="currentTime" value="<%= CT%>" scope="request"/>

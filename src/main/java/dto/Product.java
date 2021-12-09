@@ -11,10 +11,16 @@ public class Product {
 	private long unitsInStock;		//재고 수
 	private String condition;		// 신상품 / 중고/ 리퍼
 	
+	 
+	
 	public Product(String productId,String pname,int unitPrice) {
 		this.productId = productId;
 		this.pname = pname;
 		this.unitPrice = unitPrice;
+	}
+
+	public Product() {
+		
 	}
 
 	public String getProductId() {

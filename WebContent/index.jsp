@@ -1,42 +1,13 @@
-<%@page import="java.time.LocalDateTime"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!--  
+사용자가 웹 사이트 내 frontcontroller.jsp로 접근하도록 유도하는 방법
 
+1. 리다이렉트를 시킨다(Servlet, JSP, js등을 활용)
+<script>
+location.href="http://mall.com/frontController.jsp?active=main";
+</script> 
 
-
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Mall</title>
-<!-- 합쳐지고 최소화된 최신 CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-
-<!-- 부가적인 테마 -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-
-<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-</head>
-<body>
-
-<%@ include file="header.jsp" %>
-
-<div class="jumbotron">
-	<div class="container">
-		<h1 class="display-3"><%=greeting %></h1>
-	</div>
-</div>
-
-<main role="main">
-	<div class="container">
-		<div class="text-center">
-			<h3><%= tagline %></h3>
-			<p>현재 접속 시간 <%= CT %></p>
-		</div>
-	</div>
-</main>
-
-<%@ include file="footer.jsp" %>
-	
-</body>
-</html>
+2.서버 설정을 통해서 사용자가 트끼지 못하게 frontcontroller.jsp로 접근하도록 한다.
+/WEB-INF/web.xml 에 welcome file을 등록
+또는 .do 같은 특정 URL 패턴을 만들어서 Servlet Mapping을 사용해 처리를 한다.
+-->

@@ -53,4 +53,10 @@ public class Repository {
 		}
 		return product;
 	}
+	
+	public boolean addproduct(Product product) {
+		listOfProducts.add(product);
+		
+		return true;
+	}
 }

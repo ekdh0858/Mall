@@ -1,25 +1,30 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<c:set var ="greeting" value="" />
+<c:set var ="greeting" value="" scope="request"/>
 
 <c:choose>
 	<c:when test="${empty param.acvtive or param.active eq 'main' }">
 	<!-- 사용자가 메인페이지로접근햇을 때(active파라미터가 main이다) -->
 	
 	<!-- 특정 페이지의 처리 결과를 현재 페이지에 추가하거나 변수에 저장하는 태그 -->
-	<c:import url="preprocessor/main.jsp"></c:import>
+	<c:import url="preprocessor/main.jsp" ></c:import>
 	
 	</c:when>
 	
 	<c:when test="${param.active eq 'product_list' }">
-	<!-- 사용자가 상품 목록 페이지로 접근 했을 때(active 파라미터가 project_list이다) -->
+	<!-- 사용자가 상품 목록 페이지로 접근했을 때(active 파라미터가 product_list이다) -->
 	<c:import url="preprocessor/product_list.jsp"></c:import>
 	</c:when>
 
 	<c:when test="${param.active eq 'product_product' }">
 	<!-- 사용자가 상품 정보 페이지로 접근햇을 때 (active의 파라미터가 project_info이다) -->
 	<c:import url="preprocessor/product_product.jsp"></c:import>
+	</c:when>
+	
+	<c:when test="${param.active eq 'product_insert' }">
+		<!-- 사용자가 상품 등록 페이지로 접근했을 때 -->
+				
 	</c:when>
 </c:choose>
 <!DOCTYPE html>
@@ -49,12 +54,26 @@
 <main role="main">
 	<div class="container">
 		<!-- 각 페이지에 맞는 컨텐츠를 출력 -->
-		<%-- 
-		<div class="text-center">
-			<h3><%= tagline %></h3>
-			<p>현재 접속 시간 <%= CT %></p>
-		</div>
-		--%>
+		<c:choose>
+			<c:when test="${empty param.active or param.active eq 'main' }">
+				<%--메인 페이지 인클루드 --%>
+				<c:import url="view/main/main.jsp"></c:import>
+			</c:when>
+			<c:when test="${param.active eq 'product_list' }">
+				<%--상품 목록 페이지 인클루드 --%>
+				<c:import url="view/product/list.jsp"></c:import>
+			</c:when>
+			<c:when test="${param.active eq 'product_info' }">
+				<%--상품 상세  페이지 인클루드 --%>
+				<c:import url="view/product/detail.jsp"></c:import>
+			</c:when>
+			<c:when test="${param.active eq 'product_insert' }">
+				<%--상품 등록  페이지 인클루드 --%>
+				<c:import url="view/product/insert.jsp"></c:import>
+			</c:when>
+			
+		</c:choose>
+		
 	</div>
 </main>
 
