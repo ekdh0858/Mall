@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import dto.Product;
 
@@ -21,8 +22,8 @@ public class ProductController extends HttpServlet {
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
-		MultipartRequest multi = new MultipartRequest(request,"c:\\upload");
+		
+		MultipartRequest multi = new MultipartRequest(request,"C:\\Users\\User\\Desktop\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\mall\\images",5*1024*1024,"UTF-8",new DefaultFileRenamePolicy());
 		
 		String productId = multi.getParameter("productId");
 		String name= multi.getParameter("name");
@@ -32,6 +33,7 @@ public class ProductController extends HttpServlet {
 		String category= multi.getParameter("category");
 		String unitsInStock= multi.getParameter("unitsInStock");
 		String condition= multi.getParameter("condition");
+		String fileName = multi.getFilesystemName("productImage");
 		
 		//입력값 검증
 		//...
@@ -49,6 +51,7 @@ public class ProductController extends HttpServlet {
 		newProduct.setCategory(category);
 		newProduct.setUnitsInStock(stock);
 		newProduct.setCondition(condition);
+		newProduct.setFilename(fileName);
 		
 		// 상품 정보 저장
 		ProductService service = new ProductService();

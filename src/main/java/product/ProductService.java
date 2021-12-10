@@ -8,7 +8,7 @@ import dto.Product;
 public class ProductService {
 	
 	public int addproduct(Product product) {
-		Repository repos = new Repository();
+		Repository repos = Repository.getInstance();
 		
 		boolean result = repos.addproduct(product);
 		if(result) {
