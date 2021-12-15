@@ -26,7 +26,9 @@
 		hour = hour-12;
 	}
 	
-	String CT = hour+":"+s_minute+":"+s_second+" "+am_pm;
+	
+	DateTimeFormatter dft = DateTimeFormatter.ofPattern("hh:mm:ss a");
+	String CT = dft.format(ldt);
 	
 	
 %>
