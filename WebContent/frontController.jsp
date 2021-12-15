@@ -4,7 +4,7 @@
 <c:set var ="greeting" value="" scope="request"/>
 
 <c:choose>
-	<c:when test="${empty param.acvtive or param.active eq 'main' }">
+	<c:when test="${empty param.active or param.active eq 'main' }">
 	<!-- 사용자가 메인페이지로접근햇을 때(active파라미터가 main이다) -->
 	
 	<!-- 특정 페이지의 처리 결과를 현재 페이지에 추가하거나 변수에 저장하는 태그 -->
@@ -17,14 +17,14 @@
 	<c:import url="preprocessor/product_list.jsp"></c:import>
 	</c:when>
 
-	<c:when test="${param.active eq 'product_product' }">
+	<c:when test="${param.active eq 'product_info' }">
 	<!-- 사용자가 상품 정보 페이지로 접근햇을 때 (active의 파라미터가 project_info이다) -->
 	<c:import url="preprocessor/product_product.jsp"></c:import>
 	</c:when>
 	
 	<c:when test="${param.active eq 'product_insert' }">
 		<!-- 사용자가 상품 등록 페이지로 접근했을 때 -->
-				
+	<c:import url="preprocessor/product_insert.jsp"></c:import>			
 	</c:when>
 </c:choose>
 <!DOCTYPE html>
